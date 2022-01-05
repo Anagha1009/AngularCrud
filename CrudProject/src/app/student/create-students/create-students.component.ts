@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-create-students',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class CreateStudentsComponent implements OnInit {
 
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
 
+  saveStudent(studForm: NgForm):void{
+    console.log(studForm.value);
+  }
 }
