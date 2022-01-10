@@ -1,29 +1,32 @@
 <div class="container">
     <div class="col-md-6 mx-auto">
-        <form #StudentForm="ngForm" (ngSubmit)="saveStudent(StudentForm)">
+        <form #StudentForm="ngForm" (ngSubmit)="saveStudent(student)">
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <input type="text" name="name" ngModel class="form-control" placeholder="Enter Name" />
+                        <input type="text" name="name" [(ngModel)]="student.name" class="form-control" placeholder="Enter Name" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="address" ngModel class="form-control" placeholder="Enter Address" />
+                        <input type="text" name="address" [(ngModel)]="student.address" class="form-control" placeholder="Enter Address" />
                     </div>
                     <div class="form-group">
                         <label class="radio-inline">
-                            <input type="radio" value="I" name="class" ngModel />
+                            <input type="radio" value="I" name="class" [(ngModel)]="student.class" />
                             Class I
                         </label>&nbsp;&nbsp;
                         <label class="radio-inline">
-                            <input type="radio" value="II" name="class" ngModel/>
+                            <input type="radio" value="II" name="class" [(ngModel)]="student.class"/>
                             Class II
                         </label>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="rollNo" ngModel class="form-control" placeholder="Enter Roll No" />
+                        <input type="text" name="rollNo" [(ngModel)]="student.rollNo" class="form-control" placeholder="Enter Roll No" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="grade" ngModel class="form-control" placeholder="Enter Grade" />
+                        <input type="text" name="grade" [(ngModel)]="student.grade" class="form-control" placeholder="Enter Grade" />
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="imgpath" [(ngModel)]="student.imgPath" class="form-control" placeholder="Enter Grade" />
                     </div>
                 </div>
                 <div class="card-footer">
@@ -34,6 +37,7 @@
             </div>
         </form>
 
-        {{StudentForm.value | json}}
+        <!-- {{StudentForm.value | json}}
+        {{student.name}} -->
     </div>
 </div>
