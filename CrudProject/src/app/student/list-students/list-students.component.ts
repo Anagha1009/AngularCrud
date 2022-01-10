@@ -37,10 +37,23 @@ export class ListStudentsComponent implements OnInit {
       imgPath:'assets/images/Taylor-Swift.jpg'
     }
   ]
+  studentToDisplay: Student = new Student;
+  private arrayIndex  = 1;
+
   constructor(private _studentService:StudentserviceService) { }
 
   ngOnInit(): void {
     this.students = this._studentService.GetStudents();
+    this.studentToDisplay = this.students[0];
   }
 
+  nextStudent():void{
+    if(this.arrayIndex<= 2){
+      this.studentToDisplay = this.students[this.arrayIndex];
+      this.arrayIndex++;
+    }else{
+      this.studentToDisplay = this.students[0];
+      this.arrayIndex = 1;
+    }
+  }
 }
