@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
+import {StudentserviceService} from '../studentservice.service';
 
 @Component({
   selector: 'app-list-students',
@@ -36,9 +37,10 @@ export class ListStudentsComponent implements OnInit {
       imgPath:'assets/images/Taylor-Swift.jpg'
     }
   ]
-  constructor() { }
+  constructor(private _studentService:StudentserviceService) { }
 
   ngOnInit(): void {
+    this.students = this._studentService.GetStudents();
   }
 
 }

@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListStudentsComponent } from './student/list-students/list-students.component';
 import { CreateStudentsComponent } from './student/create-students/create-students.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import{StudentserviceService} from '../app/student/studentservice.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [StudentserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
