@@ -38,5 +38,10 @@ export class StudentserviceService {
   GetStudents(): Student[] {
     return this.listStudents;
   }
+
+  SaveStudent(student:Student){
+    this.listStudents.push(student);
+  }
+
   constructor() { }
 }

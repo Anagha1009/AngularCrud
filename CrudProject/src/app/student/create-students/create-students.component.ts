@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{NgForm} from '@angular/forms';
 import { Student } from 'src/app/models/student.model';
+import{StudentserviceService} from '../studentservice.service';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-students',
@@ -18,12 +20,17 @@ export class CreateStudentsComponent implements OnInit {
       imgPath:''
   }
 
-  constructor() { }
+  constructor(private _studentService:StudentserviceService, 
+              private _router:Router) 
+              { 
+
+              }
  
   ngOnInit(): void {
   }
 
-  saveStudent(studForm: Student):void{
-    console.log(studForm);
+  saveStudent():void{
+  this._studentService.SaveStudent(this.student);
+  this._router.navigate(['list-students']);
   }
 }
