@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
 
 @Component({
@@ -6,9 +6,11 @@ import { Student } from 'src/app/models/student.model';
   templateUrl: './display-student.component.html',
   styleUrls: ['./display-student.component.css']
 })
-export class DisplayStudentComponent implements OnInit, OnChanges{
+export class DisplayStudentComponent implements OnInit, OnChanges {
   @Input()
   student!: Student;
+
+  @Output() notify: EventEmitter<Student> = new EventEmitter<Student>();
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -18,4 +20,7 @@ export class DisplayStudentComponent implements OnInit, OnChanges{
   ngOnInit(): void {
   }
 
+  handleClick(){
+    this.notify.emit(this.student);
+  }
 }

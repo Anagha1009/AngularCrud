@@ -8,6 +8,8 @@ import {StudentserviceService} from '../studentservice.service';
   styleUrls: ['./list-students.component.css']
 })
 export class ListStudentsComponent implements OnInit {
+
+  dataFromChild!: Student;
   students: Student[] = [
     {
       id:1,
@@ -55,5 +57,9 @@ export class ListStudentsComponent implements OnInit {
       this.studentToDisplay = this.students[0];
       this.arrayIndex = 1;
     }
+  }
+
+  handleNotify(eventData:Student){
+    this.dataFromChild = eventData;
   }
 }
