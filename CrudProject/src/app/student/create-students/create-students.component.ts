@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import{NgForm} from '@angular/forms';
 import { Student } from 'src/app/models/student.model';
 import{StudentserviceService} from '../studentservice.service';
@@ -10,6 +10,9 @@ import{Router} from '@angular/router';
   styleUrls: ['./create-students.component.css']
 })
 export class CreateStudentsComponent implements OnInit {
+  @ViewChild('StudentForm')
+  public CreateStudentForm!: NgForm;
+
   student:Student={
       id:0,
       name:'',

@@ -9,6 +9,7 @@ import { CreateStudentsComponent } from './student/create-students/create-studen
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import{StudentserviceService} from '../app/student/studentservice.service';
 import { DisplayStudentComponent } from './student/display-student/display-student.component';
+import{CreateStudentCanDeactivateGuardService} from '../app/student/create-student-can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { DisplayStudentComponent } from './student/display-student/display-stude
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [StudentserviceService],
+  providers: [StudentserviceService,CreateStudentCanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

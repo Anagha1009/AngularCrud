@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateStudentCanDeactivateGuardService } from './student/create-student-can-deactivate-guard.service';
 import { CreateStudentsComponent } from './student/create-students/create-students.component';
 import { ListStudentsComponent } from './student/list-students/list-students.component';
 
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path:"create-students",
-    component:CreateStudentsComponent
+    component:CreateStudentsComponent,
+    canDeactivate: [CreateStudentCanDeactivateGuardService]
   }
 ];
 
