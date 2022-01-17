@@ -39,7 +39,11 @@ export class StudentserviceService {
     return this.listStudents;
   }
 
-  SaveStudent(student:Student){
+  GetStudent(id: number): Student {
+    return this.listStudents.filter(s => s.id == id)[0];
+  }
+
+  SaveStudent(student: Student) {
     this.listStudents.push(student);
   }
 
