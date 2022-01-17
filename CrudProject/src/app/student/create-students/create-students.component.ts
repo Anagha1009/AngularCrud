@@ -32,8 +32,9 @@ export class CreateStudentsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveStudent():void{
+  saveStudent(studForm:NgForm):void{
   this._studentService.SaveStudent(this.student);
+  studForm.reset();
   this._router.navigate(['list-students']);
   }
 }
