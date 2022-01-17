@@ -1,7 +1,9 @@
 <div class="col-md-8 mx-auto">
     <h1 *ngIf="dataFromChild">{{"Name=" + dataFromChild.name + ", Grade=" +  dataFromChild.grade}}</h1>
     <div class="card my-3" *ngFor="let student of students">
-        <app-display-student [student]="student" (notify)="handleNotify($event)"></app-display-student>
+        <div (click)="onClick(student.id)" class="pointer-cursor">
+            <app-display-student [student]="student" (notify)="handleNotify($event)"></app-display-student>
+        </div>
     </div>
     
     <button (click)="nextStudent()" class="btn btn-dark">View Next Student</button>

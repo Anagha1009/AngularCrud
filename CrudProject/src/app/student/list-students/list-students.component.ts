@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
 import {StudentserviceService} from '../studentservice.service';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-students',
@@ -42,7 +43,9 @@ export class ListStudentsComponent implements OnInit {
   studentToDisplay: Student = new Student;
   private arrayIndex  = 1;
 
-  constructor(private _studentService:StudentserviceService) { }
+  constructor(private _studentService:StudentserviceService,
+              private _router:Router) 
+              { }
 
   ngOnInit(): void {
     this.students = this._studentService.GetStudents();
@@ -61,5 +64,9 @@ export class ListStudentsComponent implements OnInit {
 
   handleNotify(eventData:Student){
     this.dataFromChild = eventData;
+  }
+
+  onClick(studentId:number){
+    this._router.navigate(['/student-details',studentId]);
   }
 }

@@ -10,13 +10,15 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import{StudentserviceService} from '../app/student/studentservice.service';
 import { DisplayStudentComponent } from './student/display-student/display-student.component';
 import{CreateStudentCanDeactivateGuardService} from '../app/student/create-student-can-deactivate-guard.service';
+import { StudentDetailsComponent } from './student/student-details/student-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListStudentsComponent,
     CreateStudentsComponent,
-    DisplayStudentComponent
+    DisplayStudentComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,
