@@ -1,6 +1,9 @@
 <div class="col-md-8 mx-auto">
+    <div class="form-group">
+        <input type="text" class="form-control w-50" [(ngModel)]="searchTerm" placeholder="Search Student"/>
+    </div>
     <h1 *ngIf="dataFromChild">{{"Name=" + dataFromChild.name + ", Grade=" +  dataFromChild.grade}}</h1>
-    <div class="card my-3" *ngFor="let student of students">
+    <div class="card my-3" *ngFor="let student of students | studentFilter:searchTerm">
         <div (click)="onClick(student.id)" class="pointer-cursor">
             <app-display-student [student]="student" (notify)="handleNotify($event)"></app-display-student>
         </div>

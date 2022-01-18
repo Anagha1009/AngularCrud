@@ -10,6 +10,8 @@ import{Router} from '@angular/router';
 })
 export class ListStudentsComponent implements OnInit {
 
+  searchTerm!: string;
+
   dataFromChild!: Student;
   students: Student[] = [
     {
