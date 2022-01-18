@@ -9,7 +9,7 @@ export class StudentserviceService {
     {
       id: 1,
       name: 'Selena Gomez',
-      class: 'X',
+      class: 'I',
       grade: 'O',
       address: 'UK',
       rollNo: '20',
@@ -18,7 +18,7 @@ export class StudentserviceService {
     {
       id: 2,
       name: 'Ariana Grande',
-      class: 'X',
+      class: 'I',
       grade: 'A',
       address: 'US',
       rollNo: '30',
@@ -27,7 +27,7 @@ export class StudentserviceService {
     {
       id: 3,
       name: 'Taylor Swift',
-      class: 'X',
+      class: 'II',
       grade: 'D',
       address: 'UK',
       rollNo: '35',

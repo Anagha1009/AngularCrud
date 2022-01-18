@@ -11,7 +11,7 @@ const routes: Routes = [
     component:ListStudentsComponent
   },
   {
-    path:"create-students",
+    path:"edit-students/:id",
     component:CreateStudentsComponent,
     canDeactivate: [CreateStudentCanDeactivateGuardService]
   },

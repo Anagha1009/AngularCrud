@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-display-student',
@@ -11,7 +12,7 @@ export class DisplayStudentComponent implements OnInit, OnChanges {
   student!: Student;
 
   @Output() notify: EventEmitter<Student> = new EventEmitter<Student>();
-  constructor() { }
+  constructor(private _router:Router) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -22,5 +23,13 @@ export class DisplayStudentComponent implements OnInit, OnChanges {
 
   handleClick(){
     this.notify.emit(this.student);
+  }
+
+  ViewStudent(){
+    this._router.navigate(['/student-details',this.student.id]);
+  }
+
+  EditStudent(){
+    this._router.navigate(['edit-students',this.student.id])
   }
 }

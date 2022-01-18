@@ -68,7 +68,7 @@ export class ListStudentsComponent implements OnInit {
     this.dataFromChild = eventData;
   }
 
-  onClick(studentId:number){
-    this._router.navigate(['/student-details',studentId]);
-  }
+  // onClick(studentId:number){
+  //   this._router.navigate(['/student-details',studentId]);
+  // }
 }
