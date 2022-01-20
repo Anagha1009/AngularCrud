@@ -35,5 +35,10 @@
 <div class="card-footer">
     <button class="btn btn-primary mx-1 w-25" (click)="ViewStudent()">View</button>
     <button class="btn btn-success mx-1 w-25" (click)="EditStudent()">Edit</button>
-    <button class="btn btn-danger mx-1 w-25">Delete</button>
+    <span *ngIf="confirmDelete">
+        <span>Are you sure you want to delete this?</span>
+        <button class="btn btn-danger mx-1 w-25" (click)="DeleteStudent()">Yes</button>
+        <button class="btn btn-primary mx-1 w-25" (click)="confirmDelete=false">No</button>
+    </span>
+    <button *ngIf="!confirmDelete" class="btn btn-danger mx-1 w-25" (click)="confirmDelete=true">Delete</button>
 </div>

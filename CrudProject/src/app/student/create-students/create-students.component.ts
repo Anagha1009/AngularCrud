@@ -10,7 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./create-students.component.css']
 })
 export class CreateStudentsComponent implements OnInit {
+  cardTitle!: string;
+
   @ViewChild('StudentForm')
+
   public CreateStudentForm!: NgForm;
 
   student: Student = new Student;
@@ -29,7 +32,7 @@ export class CreateStudentsComponent implements OnInit {
   }
 
   private getStudent(id: any) {
-    if (id === 0) {
+    if (id == 0) {
       this.student = {
         id: 0,
         name: '',
@@ -39,10 +42,11 @@ export class CreateStudentsComponent implements OnInit {
         rollNo: '',
         imgPath: ''
       }
-
+      this.cardTitle = 'Create Student';  
       this.CreateStudentForm.reset();
     }
     else {
+      this.cardTitle = 'Update Student';
       this.student = Object.assign({}, this._studentService.GetStudent(id));
     }
   }

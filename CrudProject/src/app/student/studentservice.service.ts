@@ -46,7 +46,7 @@ export class StudentserviceService {
 
   SaveStudent(student: Student) {
 
-    if (student.id === undefined) {
+    if (student.id == 0) {
       const maxid = this.listStudents.reduce(function(s1,s2){
         return (s1.id>s2.id) ?  s1 : s2;
       }).id;
@@ -59,6 +59,15 @@ export class StudentserviceService {
       this.listStudents[newIndex] = student;
     }
 
+  }
+
+  DeleteStudent(id:number){
+     const newid = this.listStudents.findIndex(s=>s.id === id);
+
+     if(newid !== -1)
+     {
+       this.listStudents.splice(newid,1);
+     }
   }
 
   constructor() { }
