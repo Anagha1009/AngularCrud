@@ -30,6 +30,6 @@ export class DisplayStudentComponent implements OnInit, OnChanges {
   }
 
   EditStudent(){
-    this._router.navigate(['edit-students',this.student.id])
+    this._router.navigate(['edit-students',this.student.id]);
   }
 }

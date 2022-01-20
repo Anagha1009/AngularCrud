@@ -39,9 +39,11 @@ export class CreateStudentsComponent implements OnInit {
         rollNo: '',
         imgPath: ''
       }
+
+      this.CreateStudentForm.reset();
     }
-    else{
-      this.student = this._studentService.GetStudent(id);
+    else {
+      this.student = Object.assign({}, this._studentService.GetStudent(id));
     }
   }
 

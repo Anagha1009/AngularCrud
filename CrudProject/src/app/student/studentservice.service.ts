@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { max } from 'rxjs';
 import { Student } from '../models/student.model';
 
 @Injectable({
@@ -44,7 +45,20 @@ export class StudentserviceService {
   }
 
   SaveStudent(student: Student) {
-    this.listStudents.push(student);
+
+    if (student.id === undefined) {
+      const maxid = this.listStudents.reduce(function(s1,s2){
+        return (s1.id>s2.id) ?  s1 : s2;
+      }).id;
+
+      student.id = maxid + 1;  
+      this.listStudents.push(student);
+    }
+    else {
+      const newIndex = this.listStudents.findIndex(e => e.id === student.id);
+      this.listStudents[newIndex] = student;
+    }
+
   }
 
   constructor() { }
