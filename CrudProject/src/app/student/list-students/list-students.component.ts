@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
 import {StudentserviceService} from '../studentservice.service';
 import{Router} from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-students',
@@ -45,12 +46,15 @@ export class ListStudentsComponent implements OnInit {
   studentToDisplay: Student = new Student;
   private arrayIndex  = 1;
 
+  public data:any;
+
   constructor(private _studentService:StudentserviceService,
               private _router:Router) 
               { }
 
   ngOnInit(): void {
-    this.students = this._studentService.GetStudents();
+    //this.students = this._studentService.GetStudents();
+    this.data = this._studentService.GetStudents();
     this.studentToDisplay = this.students[0];
   }
 

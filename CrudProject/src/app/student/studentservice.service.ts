@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { max } from 'rxjs';
+import { max, Observable } from 'rxjs';
 import { Student } from '../models/student.model';
+import{HttpClient} from '@angular/common/http';
+import { Data } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentserviceService {
-  private listStudents: Student[] = [
+    
+    constructor(private _httpClient:HttpClient) { }
+
+    private listStudents: Student[] = [
     {
       id: 1,
       name: 'Selena Gomez',
@@ -36,8 +41,10 @@ export class StudentserviceService {
     }
   ]
 
-  GetStudents(): Student[] {
-    return this.listStudents;
+
+  GetStudents() {
+    //return this.listStudents;
+    return this._httpClient.get('https://localhost:44330/api/Student/GetAll');
   }
 
   GetStudent(id: number): Student {
@@ -70,5 +77,4 @@ export class StudentserviceService {
      }
   }
 
-  constructor() { }
 }
